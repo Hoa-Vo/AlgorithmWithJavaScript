@@ -19,6 +19,25 @@ class LinkedList {
     }
     return count;
   }
+  clear() {
+    this.head = null;
+  }
+  getHead() {
+    return this.head.data;
+  }
+  getTail() {
+    let node = this.head;
+    while (node) {
+      if (!node.next) {
+        return node.data;
+      }
+      node = node.next;
+    }
+    return null;
+  }
+  getNodeAtPosition(pos) {
+    let count = 0;
+  }
 }
 
 function main() {
@@ -29,5 +48,7 @@ function main() {
   node2.next = node3;
   let LinkList = new LinkedList(node1);
   console.log("size of list", LinkList.size());
+  console.log("head data is", LinkList.getHead());
+  console.log("tail data is", LinkList.getTail());
 }
 main();
