@@ -58,15 +58,21 @@ class LinkedList {
 function reverseLinkedList(list) {
   let temp = new LinkedList();
   temp = list;
+  //Init previous node, current node and nex node
   let prev = null;
   let next = null;
   let curr = temp.head;
   while (curr) {
+    //get value for next node
     next = curr.next;
+    //reverse current node
     curr.next = prev;
+    //previous node now equal to curent node
     prev = curr;
+    //keep tracking next node
     curr = next;
   }
+  //change head of link list
   temp.head = prev;
   return temp;
 }
