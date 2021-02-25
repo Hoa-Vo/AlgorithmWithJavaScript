@@ -17,6 +17,7 @@ function quickSort(array) {
       right.push(array[i]);
     }
   }
+  //recursion
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
 main();
