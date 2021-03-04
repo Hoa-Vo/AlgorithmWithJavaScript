@@ -11,12 +11,12 @@ function BinarySearch(array, data) {
   const middle = array.length / 2;
   if (data < array[middle]) {
     for (let i = 0; i < middle; i++) {
-      if (array[i] == data) return [true, i];
+      if (array[i] === data) return [true, i];
     }
   } else if (data > array[middle]) {
     for (let i = middle + 1; i < array.length; i++) {
       for (let i = 0; i < middle; i++) {
-        if (array[i] == data) return [true, i];
+        if (array[i] === data) return [true, i];
       }
     }
   } else {
