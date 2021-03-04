@@ -54,6 +54,10 @@ class BinaryTree {
   //remove a node
   removeNode(node, data) {
     //if data less than current node data (start with root node)
+    if (!node) {
+      console.log("cant find node");
+      return node;
+    }
     if (data < node.data) {
       //call recursion for node.left
       node.left = this.removeNode(node.left, data);
@@ -94,6 +98,20 @@ class BinaryTree {
     }
     return node;
   }
+  finNode(node, data) {
+    if (node === null) {
+      console.log("cant find node", data);
+      return;
+    }
+    if (data < node.data) {
+      this.finNode(node.left, data);
+    } else if (data > node.data) {
+      this.finNode(node.right, data);
+    } else {
+      console.log("found node", data, "in tree");
+      return;
+    }
+  }
 }
 
 function main() {
@@ -104,8 +122,9 @@ function main() {
   }
   let node = tree.getRoot();
   tree.inorder(node);
-  node = tree.removeNode(node, 25);
-  console.log("tree after remove node 4");
+  node = tree.removeNode(node, 22);
+  console.log("tree after remove node 22");
   tree.inorder(node);
+  tree.finNode(node, 434);
 }
 main();
